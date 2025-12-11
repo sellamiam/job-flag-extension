@@ -1,0 +1,72 @@
+{
+    "manifest_version": 3,
+    "name": "Job Flag - Fake Job Detector",
+    "version": "1.0.0",
+    "description": "Detects and flags potentially fake job postings on LinkedIn and Indeed with AI-powered risk scoring",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "host_permissions": [
+        "*://www.linkedin.com/*",
+        "*://*.indeed.com/*",
+        "*://*.indeed.ca/*",
+        "*://*.indeed.co.uk/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://www.linkedin.com/jobs/*"
+            ],
+            "js": [
+                "content-linkedin.js"
+            ],
+            "css": [
+                "styles.css"
+            ],
+            "run_at": "document_idle"
+        },
+        {
+            "matches": [
+                "*://*.indeed.com/*",
+                "*://*.indeed.ca/*",
+                "*://*.indeed.co.uk/*"
+            ],
+            "js": [
+                "content-indeed.js"
+            ],
+            "css": [
+                "styles.css"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "styles.css"
+            ],
+            "matches": [
+                "*://www.linkedin.com/*",
+                "*://*.indeed.com/*",
+                "*://*.indeed.ca/*",
+                "*://*.indeed.co.uk/*"
+            ]
+        }
+    ]
+}

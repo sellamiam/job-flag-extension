@@ -1,0 +1,370 @@
+/* Job Flag - Unified Styles for LinkedIn (lfj-) & Indeed (ijf-) */
+
+/* ============================================
+   LINKEDIN BADGE STYLES (lfj- prefix)
+   ============================================ */
+
+.lfj-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 11px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 8px;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+.lfj-badge:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.lfj-badge--green {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+}
+
+.lfj-badge--yellow {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1e293b;
+}
+
+.lfj-badge--red {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.lfj-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #f8fafc;
+  padding: 14px 16px;
+  border-radius: 12px;
+  min-width: 240px;
+  max-width: 320px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  z-index: 10001;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  transform: translateX(-50%) translateY(5px);
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.lfj-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #0f172a;
+}
+
+.lfj-badge:hover .lfj-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.lfj-tooltip__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lfj-tooltip__title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #94a3b8;
+}
+
+.lfj-tooltip__score {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.lfj-tooltip__score--green {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+.lfj-tooltip__score--yellow {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+}
+
+.lfj-tooltip__score--red {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+}
+
+.lfj-tooltip__flags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lfj-tooltip__flag {
+  display: flex;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 6px 0;
+  color: #e2e8f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lfj-tooltip__flag:last-child {
+  border-bottom: none;
+}
+
+.lfj-tooltip__safe {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #4ade80;
+  padding: 8px 0;
+}
+
+.lfj-tooltip__summary {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #cbd5e1;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.lfj-tooltip__section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.lfj-tooltip__flag--positive {
+  color: #4ade80;
+}
+
+.lfj-tooltip__source {
+  font-size: 10px;
+  color: #64748b;
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   INDEED BADGE STYLES (ijf- prefix)
+   ============================================ */
+
+.ijf-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 11px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 8px;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+.ijf-badge:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Fixed position in top-right corner for Indeed */
+.ijf-badge--fixed {
+  position: absolute;
+  top: 0;
+  right: 24px;
+  margin-left: 0;
+  z-index: 1000;
+}
+
+.ijf-badge--green {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+}
+
+.ijf-badge--yellow {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1e293b;
+}
+
+.ijf-badge--red {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.ijf-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #f8fafc;
+  padding: 14px 16px;
+  border-radius: 12px;
+  min-width: 240px;
+  max-width: 320px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  z-index: 10001;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  transform: translateX(-50%) translateY(5px);
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.ijf-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #0f172a;
+}
+
+.ijf-badge:hover .ijf-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.ijf-tooltip__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ijf-tooltip__title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #94a3b8;
+}
+
+.ijf-tooltip__score {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.ijf-tooltip__score--green {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+.ijf-tooltip__score--yellow {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+}
+
+.ijf-tooltip__score--red {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+}
+
+.ijf-tooltip__flags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ijf-tooltip__flag {
+  display: flex;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 6px 0;
+  color: #e2e8f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ijf-tooltip__flag:last-child {
+  border-bottom: none;
+}
+
+.ijf-tooltip__safe {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #4ade80;
+  padding: 8px 0;
+}
+
+.ijf-tooltip__summary {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #cbd5e1;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.ijf-tooltip__section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.ijf-tooltip__flag--positive {
+  color: #4ade80;
+}
+
+.ijf-tooltip__source {
+  font-size: 10px;
+  color: #64748b;
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

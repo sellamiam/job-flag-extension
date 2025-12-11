@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Flag</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 350px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #f8fafc;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .header-text h1 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .header-text p {
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #94a3b8;
+            margin-bottom: 10px;
+        }
+
+        .api-section {
+            background: rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .api-input-wrapper {
+            display: flex;
+            gap: 8px;
+        }
+
+        .api-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 12px;
+            color: #f8fafc;
+            outline: none;
+        }
+
+        .api-input:focus {
+            border-color: #f97316;
+        }
+
+        .api-input::placeholder {
+            color: #64748b;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            border: none;
+            border-radius: 8px;
+            padding: 10px 16px;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.02);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .api-status {
+            margin-top: 10px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .api-status.connected {
+            color: #4ade80;
+        }
+
+        .api-status.disconnected {
+            color: #fbbf24;
+        }
+
+        .get-key-link {
+            display: block;
+            margin-top: 8px;
+            font-size: 11px;
+            color: #f97316;
+            text-decoration: none;
+        }
+
+        .get-key-link:hover {
+            text-decoration: underline;
+        }
+
+        .platforms {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .platform-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .platform-badge--linkedin {
+            background: rgba(10, 102, 194, 0.2);
+            color: #0a66c2;
+        }
+
+        .platform-badge--indeed {
+            background: rgba(33, 100, 243, 0.2);
+            color: #2164f3;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            color: #94a3b8;
+            text-transform: uppercase;
+        }
+
+        .legend {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot--green {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+        }
+
+        .legend-dot--yellow {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+        }
+
+        .legend-dot--red {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        .footer {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 10px;
+            color: #64748b;
+        }
+
+        .powered-by {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 4px;
+            font-size: 10px;
+            color: #f97316;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">🛡️</div>
+        <div class="header-text">
+            <h1>Job Flag</h1>
+            <p>AI-Powered Fraud Detection</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Supported Platforms</div>
+        <div class="platforms">
+            <div class="platform-badge platform-badge--linkedin">
+                <span>💼</span> LinkedIn
+            </div>
+            <div class="platform-badge platform-badge--indeed">
+                <span>🔍</span> Indeed
+            </div>
+        </div>
+    </div>
+
+    <div class="section api-section">
+        <div class="section-title">🔑 Groq API Key (Free)</div>
+        <div class="api-input-wrapper">
+            <input type="password" id="api-key" class="api-input" placeholder="Enter your Groq API key">
+            <button id="save-key" class="btn">Save</button>
+        </div>
+        <div id="api-status" class="api-status disconnected">
+            ○ Not configured
+        </div>
+        <a href="https://console.groq.com/keys" target="_blank" class="get-key-link">
+            → Get free API key from Groq Console
+        </a>
+    </div>
+
+    <div class="section">
+        <div class="section-title">📊 Statistics</div>
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value" id="jobs-analyzed">0</div>
+                <div class="stat-label">Jobs Analyzed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="flags-triggered">0</div>
+                <div class="stat-label">Flags Found</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Risk Levels</div>
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-dot legend-dot--green"></div>
+                <span>70-100% — Likely Legitimate</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot legend-dot--yellow"></div>
+                <span>40-69% — Some Concerns</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot legend-dot--red"></div>
+                <span>0-39% — High Risk / Likely Scam</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        v1.0 — Protecting your job search
+        <div class="powered-by">
+            ⚡ Powered by Groq (Llama 3.1)
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
